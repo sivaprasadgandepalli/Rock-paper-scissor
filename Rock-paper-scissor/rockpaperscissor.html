@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>rock paper scissor</title>
+	<style type="text/css">
+		*{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+		.container{
+			background:indianred;
+			width:20em;
+			padding: 15px;
+			border-radius: 10px;
+			margin: 5px;
+		}
+		.score{
+			width: 150px;
+			height: 70px;
+			border: 2px solid black;
+			position: relative;
+			text-align: center;
+			margin-left: 75px;
+		}
+		#comp{
+			width:fit-content ;
+			padding:5px 10px 5px 8px;
+			border: 1px solid black;
+			background: red;
+			position: absolute;
+			right: -45px;
+			top: 20px;
+			font-size: 20px;
+		}
+		#user{
+			width:fit-content ;
+			padding:5px 10px 5px 8px;
+			border: 1px solid black;
+			background: red;
+			position: absolute;
+			left: -45px;
+			top: 20px;
+			font-size: 20px;
+		}
+		h2{
+			text-transform:uppercase;
+			box-sizing: border-box;
+			color: green;
+			font-family:monospace;
+			font-size: 25px;
+			text-shadow: 2px 2px lemonchiffon;
+			text-align: center;
+			margin: 10px 0 15px 0;
+		}
+		span{
+			font-family:serif ;
+			text-align: center;
+
+		}
+		img{
+			width: 30px;
+			height: 30px;
+			border: 2px solid black;
+			border-radius: 50%;
+			padding:5px;
+			margin: 0 5px 0 0;
+		}
+		#icons{
+			display: block;
+			margin-top: 15px;
+			text-align: center;
+		}
+		.res{
+			display: block;
+			font-family:monospace,cursive;
+			margin-top: 15px;
+			text-align: center;
+		}
+		h3{
+			margin-bottom: 10px;
+		}
+		#res{
+			font-family: 'Times New Roman', Times, serif;
+			font-weight: 800;
+			font-size: large;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>Rock-Paper-Scissor</h2>
+		<div class="score">
+			<div id="user">Player</div>
+			<div id="comp">Robot</div><br>
+			<span id="usc" style="font-size: 30px;">0</span><strong style="font-size: 30px;">:</strong><span id="rbc" style="font-size: 30px;">0</span>
+		</div>
+		<div class="res">
+			<b>Player:</b><span id="pi">__</span> <b>Robot:</b><span id="ri">__</span><br>
+			<span id="res">Start the game.</span>
+		</div>
+		<div id="icons">
+			<h3>choose your choice</h3>
+			<a href="#" class="img" onclick="play('Scissor')"><img src="scissor.png"></a>
+			<a href="#"class="img" onclick="play('Paper')"><img src="hand.png"></a>
+			<a href="#" class="img" onclick="play('Rock')"><img src="fist.png"></a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var game=['Rock','Paper','Scissor'];
+		var us=document.getElementById('usc');
+		var rb=document.getElementById('rbc');
+		var i=0;
+		var j=0;
+		var sh=document.getElementById('res');
+		function play(e)
+		{
+			let a=Math.floor(Math.random()*3);
+			let cc=game[a]
+			if(cc===e)
+			{
+				sh.innerText="It's Tie.Both choices are "+e+"s";
+				pi.innerText=e;
+				ri.innerText=e;
+			}
+			if(cc==='Paper' && e==='Rock')
+			{
+				sh.innerText="You Lose!";
+				j++;
+				rb.innerText=j;
+				pi.innerText=e;
+				ri.innerText=cc;
+			}
+			else if(cc==='Rock'&& e==='Paper')
+			{
+				sh.innerText="You Won";
+				i++;
+				us.innerText=i;
+				pi.innerText=e;
+				ri.innerText=cc;
+			}
+			else if(cc==='Rock'&&e==='Scissor')
+			{
+				j++;
+				sh.innerText="You Lose!";
+				rb.innerText=j;
+				pi.innerText=e;
+				ri.innerText=cc;
+			}
+			else if(cc=='Scissor'&&e==='Rock')
+			{
+				i++;
+				sh.innerText="You Won";
+				us.innerText=i;
+				pi.innerText=e;
+				ri.innerText=cc;
+			}
+			else if(cc==='Scissor'&& e==='Paper')
+			{
+				j++;
+				sh.innerText="You Lose!";
+				rb.innerText=j;
+				pi.innerText=e;
+				ri.innerText=cc;
+			}
+			if(cc==='Paper' && e==='Scissor')
+			{
+				i++;
+				sh.innerText="You Won";
+				us.innerText=i;
+				pi.innerText=e;
+				ri.innerText=cc;
+			}
+		}
+	</script>
+</body>
+</html>
